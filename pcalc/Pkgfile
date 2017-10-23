@@ -1,0 +1,16 @@
+# Description: Programmer's calculator, command line utility.
+# URL: http://pcalc.sourceforge.net/
+# Maintainer: Anton Baranov, abaranov dot anton at gmail dot com
+# Packager: Anton Baranov, abaranov dot anton at gmail dot com
+# Depends on:
+name=pcalc
+version=3
+release=1
+source=(https://github.com/vapier/$name/archive/v$version.tar.gz)
+build () {
+    cd $name-$version
+    make
+    make PREFIX=/usr \
+         DESTDIR=$PKG \
+         install
+}
